@@ -5,10 +5,12 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "start": "wrangler dev",
+    "lint:fix": "prettier */*.ts -w"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230419.0",
+    "prettier": "^3.0.3",
     "typescript": "^5.0.4",
     "wrangler": "^3.0.0"
   }
