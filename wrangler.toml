@@ -1,0 +1,17 @@
+name = "dbots-guild-count"
+main = "src/index.ts"
+compatibility_date = "2023-10-25"
+
+[[kv_namespaces]]
+binding = "KV"
+# update this:
+id = "c4315a9dd17c4ee490d5d2b1910817c7"
+
+## secrets
+## set these using wrangler secret, below is demonstrative only
+# DBOTS_TOKEN = "asdfggh"
+# TOKENS = {"1234567890": "asdsfg"}
+# HTTPSECRET = "asdfgh"
+
+[triggers]
+crons = ["0 */2 * * *"]
