@@ -28,7 +28,7 @@ async function handleRequest(ctx: ExecutionContext, env: Env) {
 	const tokenStore: Dictionary<string> = JSON.parse(env.TOKENS);
 
 	for (const key in tokenStore) {
-		const userAgent = `dbots-guild-count/1.0 (Workers+https://github.com/Erisa/dbots-guild-count) DBots/${key}`
+		const userAgent = `dbots-guild-count/1.0 (CFWorkers; +https://github.com/Erisa/dbots-guild-count) DBots/${key}`
 		let resp = await fetch('https://discord.com/api/v10/applications/@me', {
 			headers: {
 				Authorization: 'Bot ' + tokenStore[key],
