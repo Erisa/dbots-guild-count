@@ -28,10 +28,12 @@ async function handleRequest(ctx: ExecutionContext, env: Env) {
 	const tokenStore: Dictionary<string> = JSON.parse(env.TOKENS);
 
 	for (const key in tokenStore) {
+		const userAgent = `dbots-guild-count/1.0 (Workers+https://github.com/Erisa/dbots-guild-count) DBots/${key}`
 		let resp = await fetch('https://discord.com/api/v10/applications/@me', {
 			headers: {
 				Authorization: 'Bot ' + tokenStore[key],
 				'Content-Type': 'application/json',
+				'User-Agent': userAgent
 			},
 		});
 		if (resp.status === 200) {
@@ -47,6 +49,7 @@ async function handleRequest(ctx: ExecutionContext, env: Env) {
 				headers: {
 					'Content-Type': 'application/json',
 					Authorization: env.DBOTS_TOKEN,
+					'User-Agent': userAgent
 				},
 				body: JSON.stringify({
 					guildCount: guildcounts[key],
